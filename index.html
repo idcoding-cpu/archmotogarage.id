@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081321">
+<title>ArchmotoGarage | Automotive Performance</title>
+
+<style>
+:root {
+    --dark: #081321;
+    --dark2: #101f32;
+    --blue: #123b63;
+    --yellow: #ffc928;
+    --white: #f5f7fa;
+    --muted: #a8b3c2;
+    --line: rgba(255,255,255,.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: min(1150px, 90%);
+    margin: auto;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title span {
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.section-title h2 {
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 600px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.btn-primary {
+    background: var(--yellow);
+    color: var(--dark);
+}
+
+.btn-primary:hover {
+    background: #ffe078;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.5);
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+}
+
+/* NAVBAR */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,19,33,.96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--yellow);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: #d7dfeb;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: var(--yellow);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    color: white;
+    border: 1px solid var(--line);
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+    linear-gradient(90deg, rgba(8,19,33,.98) 0%, rgba(8,19,33,.8) 48%, rgba(8,19,33,.25) 100%),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85") center/cover;
+}
+
+.hero-content {
+    max-width: 680px;
+    padding: 90px 0;
+}
+
+.hero-label {
+    display: inline-block;
+    color: var(--yellow);
+    border-left: 4px solid var(--yellow);
+    padding-left: 12px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 1.04;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: var(--yellow);
+}
+
+.hero p {
+    max-width: 520px;
+    color: #d1d9e4;
+    margin: 22px 0 30px;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* STATS */
+
+.stats {
+    background: var(--yellow);
+    color: var(--dark);
+    padding: 25px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.stat small {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about-image {
+    height: 420px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.about-image:hover img {
+    transform: scale(1.04);
+}
+
+.about-text p {
+    color: var(--muted);
+    margin: 18px 0;
+}
+
+.feature-list {
+    list-style: none;
+    margin: 20px 0 28px;
+}
+
+.feature-list li {
+    margin: 12px 0;
+    color: #dce4ed;
+}
+
+.feature-list li::before {
+    content: "✓";
+    color: var(--yellow);
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+/* SERVICES */
+
+.services-section {
+    background: #0d1a2a;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.service-card {
+    background: #14243a;
+    border: 1px solid var(--line);
+    padding: 27px;
+    border-radius: 8px;
+    transition: .25s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--yellow);
+}
+
+.service-number {
+    color: var(--yellow);
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.service-card h3 {
+    font-size: 19px;
+    margin: 15px 0 10px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.gallery-item {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--dark2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 35px 18px 17px;
+    background: linear-gradient(transparent, rgba(0,0,0,.9));
+    font-weight: 800;
+}
+
+/* TEAM */
+
+.team-section {
+    background: #0d1a2a;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.team-card {
+    padding: 25px 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #14243a;
+    text-align: center;
+}
+
+.team-card .initial {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: grid;
+    place-items: center;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.team-card h3 {
+    font-size: 17px;
+}
+
+.team-card p {
+    color: var(--yellow);
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 35px;
+}
+
+.contact-info {
+    background: #14243a;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+
+.contact-info h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.contact-detail {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-detail strong {
+    display: block;
+    color: var(--yellow);
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.contact-form {
+    background: #14243a;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: #0b1726;
+    color: white;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--yellow);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group select option {
+    background: #0b1726;
+}
+
+.contact-form .btn {
+    width: 100%;
+}
+
+/* CTA */
+
+.cta {
+    background:
+    linear-gradient(rgba(8,19,33,.88), rgba(8,19,33,.92)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85") center/cover;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.cta h2 {
+    font-size: clamp(27px, 5vw, 42px);
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #d0d9e4;
+    margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 0;
+    background: #050d17;
+    border-top: 1px solid var(--line);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+footer .logo {
+    font-size: 18px;
+}
+
+/* FLOATING WHATSAPP */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 999;
+    background: #20c96b;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 900;
+    box-shadow: 0 5px 25px rgba(0,0,0,.3);
+    transition: .2s;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-4px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: #081321;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .section {
+        padding: 65px 0;
+    }
+
+    .hero {
+        min-height: 570px;
+        background-position: 60% center;
+    }
+
+    .hero-content {
+        padding: 70px 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .services-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 230px;
+    }
+
+    .about-image {
+        height: 280px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 22px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .whatsapp-float {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="#home" class="logo">ARCHMOTO<span>GARAGE</span></a>
+
+        <button class="menu-toggle" id="menuToggle"
+        aria-label="Buka menu" aria-expanded="false">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#gallery">GALLERY</a></li>
+            <li><a href="#team">TEAM</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-label">AUTOMOTIVE PERFORMANCE CENTER</div>
+
+            <h1>
+                BUILT FOR<br>
+                <span>PERFORMANCE.</span>
+            </h1>
+
+            <p>
+                ArchmotoGarage menghadirkan layanan otomotif untuk
+                mobil dan motor. Mulai dari perawatan, perbaikan,
+                instalasi hingga modifikasi sesuai kebutuhan kendaraan.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">EXPLORE SERVICES</a>
+                <a href="#contact" class="btn btn-outline">CONTACT US</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="container stats-grid">
+        <div class="stat">
+            <strong>CAR</strong>
+            <small>AUTOMOTIVE SERVICE</small>
+        </div>
+        <div class="stat">
+            <strong>MOTORCYCLE</strong>
+            <small>PERFORMANCE SERVICE</small>
+        </div>
+        <div class="stat">
+            <strong>PROFESSIONAL</strong>
+            <small>SERVICE APPROACH</small>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="container about-grid">
+
+        <div class="about-image">
+            <img
+            src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1000&q=85"
+            alt="Interior bengkel otomotif"
+            loading="lazy">
+        </div>
+
+        <div class="about-text">
+            <div class="section-title">
+                <span>WHO WE ARE</span>
+                <h2>ABOUT ARCHMOTOGARAGE</h2>
+            </div>
+
+            <p>
+                ArchmotoGarage merupakan brand layanan otomotif
+                yang berfokus pada perawatan, perbaikan, dan
+                pengembangan performa kendaraan.
+            </p>
+
+            <p>
+                Kami melayani kebutuhan kendaraan roda dua dan
+                roda empat dengan pendekatan konsultasi agar
+                pelanggan dapat menentukan layanan yang sesuai.
+            </p>
+
+            <ul class="feature-list">
+                <li>Layanan mobil dan motor</li>
+                <li>Konsultasi kebutuhan kendaraan</li>
+                <li>Perawatan dan perbaikan</li>
+                <li>Modifikasi dan upgrade performa</li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary">CONSULT NOW</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section services-section" id="services">
+    <div class="container">
+
+        <div class="section-title">
+            <span>OUR SERVICES</span>
+            <h2>AUTOMOTIVE SOLUTIONS</h2>
+            <p>
+                Berbagai layanan untuk kebutuhan perawatan,
+                pengembangan, dan modifikasi kendaraan.
+            </p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <span class="service-number">01 / CAR</span>
+                <h3>Car Service</h3>
+                <p>Perawatan dan pemeriksaan kendaraan roda empat.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">02 / MOTOR</span>
+                <h3>Motorcycle Service</h3>
+                <p>Perawatan dan perbaikan kendaraan roda dua.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">03 / MODIFICATION</span>
+                <h3>Modification</h3>
+                <p>Modifikasi tampilan dan komponen kendaraan sesuai konsep.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">04 / PERFORMANCE</span>
+                <h3>Bore Up</h3>
+                <p>Layanan pengembangan kapasitas mesin sesuai kebutuhan dan spesifikasi.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">05 / ENGINE</span>
+                <h3>Porting</h3>
+                <p>Pengerjaan komponen mesin untuk kebutuhan pengembangan performa.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">06 / INSTALLATION</span>
+                <h3>Installation</h3>
+                <p>Pemasangan komponen, aksesori, dan perangkat kendaraan.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">07 / UPGRADE</span>
+                <h3>Performance Upgrade</h3>
+                <p>Pengembangan performa kendaraan sesuai spesifikasi dan kebutuhan.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">08 / REPAIR</span>
+                <h3>Repair & Maintenance</h3>
+                <p>Pemeriksaan, perbaikan, dan perawatan komponen kendaraan.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">09 / CONSULTATION</span>
+                <h3>Automotive Consultation</h3>
+                <p>Konsultasi sebelum menentukan pengerjaan kendaraan.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section" id="gallery">
+    <div class="container">
+
+        <div class="section-title">
+            <span>OUR GALLERY</span>
+            <h2>AUTOMOTIVE SHOWCASE</h2>
+            <p>
+                Referensi visual kendaraan mobil dan motor.
+                Foto berikut merupakan gambar ilustrasi.
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85"
+                alt="Mobil sport"
+                loading="lazy">
+                <div class="gallery-caption">SPORT CAR</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85"
+                alt="Motor sport"
+                loading="lazy">
+                <div class="gallery-caption">MOTORCYCLE</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85"
+                alt="Mobil performa tinggi"
+                loading="lazy">
+                <div class="gallery-caption">CAR PERFORMANCE</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=85"
+                alt="Motor custom"
+                loading="lazy">
+                <div class="gallery-caption">CUSTOM MOTOR</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=900&q=85"
+                alt="Mobil di jalan"
+                loading="lazy">
+                <div class="gallery-caption">AUTOMOTIVE STYLE</div>
+            </div>
+
+            <div class="gallery-item">
+                <img
+                src="https://images.unsplash.com/photo-1558980394-0c6b5a4b4e7c?auto=format&fit=crop&w=900&q=85"
+                alt="Detail motor"
+                loading="lazy">
+                <div class="gallery-caption">MOTOR DETAIL</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section team-section" id="team">
+    <div class="container">
+
+        <div class="section-title">
+            <span>OUR TEAM</span>
+            <h2>THE PEOPLE BEHIND THE GARAGE</h2>
+            <p>
+                Tim ArchmotoGarage yang mendukung operasional
+                dan pelayanan pelanggan.
+            </p>
+        </div>
+
+        <div class="team-grid">
+
+            <div class="team-card">
+                <div class="initial">A</div>
+                <h3>Althaf</h3>
+                <p>MECHANIC</p>
+            </div>
+
+            <div class="team-card">
+                <div class="initial">A</div>
+                <h3>Azka</h3>
+                <p>MECHANIC</p>
+            </div>
+
+            <div class="team-card">
+                <div class="initial">A</div>
+                <h3>Agus</h3>
+                <p>MECHANIC</p>
+            </div>
+
+            <div class="team-card">
+                <div class="initial">A</div>
+                <h3>Alaric</h3>
+                <p>ADMINISTRATION</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <span>GET IN TOUCH</span>
+            <h2>CONTACT ARCHMOTOGARAGE</h2>
+            <p>
+                Punya pertanyaan atau ingin konsultasi mengenai
+                kendaraan? Hubungi admin kami.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+                <h3>Let's Talk Automotive.</h3>
+                <p>
+                    Sampaikan kebutuhan kendaraan Anda.
+                    Admin akan membantu proses konsultasi
+                    dan informasi layanan.
+                </p>
+
+                <div class="contact-detail">
+                    <strong>WHATSAPP ADMIN</strong>
+                    +62 877-6775-2312
+                </div>
+
+                <div class="contact-detail">
+                    <strong>ADMINISTRATION</strong>
+                    Alaric
+                </div>
+
+                <div class="contact-detail">
+                    <strong>SERVICE CATEGORY</strong>
+                    Cars & Motorcycles
+                </div>
+
+                <br>
+
+                <a
+                class="btn btn-primary"
+                href="https://wa.me/6287767752312"
+                target="_blank"
+                rel="noopener noreferrer">
+                    CHAT ADMIN
+                </a>
+            </div>
+
+            <form class="contact-form" id="consultForm">
+                <h3>Consultation Form</h3>
+
+                <div class="form-group">
+                    <label for="customerName">Nama Lengkap</label>
+                    <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Masukkan nama Anda"
+                    maxlength="80"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicleType">Jenis Kendaraan</label>
+                    <select id="vehicleType" required>
+                        <option value="">Pilih kendaraan</option>
+                        <option value="Mobil">Mobil</option>
+                        <option value="Motor">Motor</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceType">Layanan</label>
+                    <select id="serviceType" required>
+                        <option value="">Pilih layanan</option>
+                        <option>Servis kendaraan</option>
+                        <option>Modifikasi</option>
+                        <option>Bore Up</option>
+                        <option>Porting</option>
+                        <option>Instalasi</option>
+                        <option>Performance Upgrade</option>
+                        <option>Repair & Maintenance</option>
+                        <option>Konsultasi lainnya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerMessage">Detail Kebutuhan</label>
+                    <textarea
+                    id="customerMessage"
+                    placeholder="Ceritakan kebutuhan kendaraan Anda..."
+                    maxlength="1000"
+                    required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    SEND VIA WHATSAPP
+                </button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>READY TO UPGRADE YOUR RIDE?</h2>
+        <p>
+            Konsultasikan kebutuhan kendaraan Anda bersama ArchmotoGarage.
+        </p>
+        <a
+        href="https://wa.me/6287767752312"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary">
+            CONTACT ADMIN NOW
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <a href="#home" class="logo">ARCHMOTO<span>GARAGE</span></a>
+        <p>© <span id="year"></span> ArchmotoGarage. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<a
+href="https://wa.me/6287767752312"
+target="_blank"
+rel="noopener noreferrer"
+class="whatsapp-float"
+aria-label="Chat WhatsApp">
+    WHATSAPP ↗
+</a>
+
+<script>
+"use strict";
+
+// MOBILE NAVIGATION
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("active");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+// CLOSE MENU AFTER CLICKING A LINK
+document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+    });
+});
+
+// AUTOMATIC COPYRIGHT YEAR
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// WHATSAPP CONSULTATION FORM
+const consultForm = document.getElementById("consultForm");
+
+consultForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("customerName").value.trim();
+    const vehicle = document.getElementById("vehicleType").value;
+    const service = document.getElementById("serviceType").value;
+    const message = document.getElementById("customerMessage").value.trim();
+
+    if (!name || !vehicle || !service || !message) {
+        alert("Mohon lengkapi semua kolom terlebih dahulu.");
+        return;
+    }
+
+    const whatsappNumber = "6287767752312";
+
+    const whatsappMessage =
+        "Halo ArchmotoGarage, saya ingin konsultasi.%0A%0A" +
+        "Nama: " + encodeURIComponent(name) + "%0A" +
+        "Kendaraan: " + encodeURIComponent(vehicle) + "%0A" +
+        "Layanan: " + encodeURIComponent(service) + "%0A" +
+        "Detail: " + encodeURIComponent(message);
+
+    const whatsappURL =
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + whatsappMessage;
+
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
+});
+</script>
+
+</body>
+</html>
